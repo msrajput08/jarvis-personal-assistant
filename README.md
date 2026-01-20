@@ -1,6 +1,7 @@
 # Jarvis – Personal AI Assistant 🤖
 
-Jarvis is a Python-based **personal AI assistant** that supports **voice and text interaction**, system automation, and intelligent command handling.  
+Jarvis is a **Python-based personal AI assistant** that supports **voice and text interaction**, system automation, and intelligent command handling.
+
 It is designed as a **learning-focused, extensible desktop assistant**, inspired by real-world AI systems.
 
 > 🚧 This project is actively under development.
@@ -9,7 +10,7 @@ It is designed as a **learning-focused, extensible desktop assistant**, inspired
 
 ## ✨ Features
 
-- 🗣️ Voice-based interaction (speech recognition + TTS)
+- 🗣️ Voice-based interaction (Speech Recognition + TTS)
 - 💬 Text input via GUI
 - 🎯 Wake-word activation (`Jarvis`)
 - 🔁 Continuous conversation mode (no repeated wake word)
@@ -22,7 +23,7 @@ It is designed as a **learning-focused, extensible desktop assistant**, inspired
 
 ## 🛠️ Tech Stack
 
-- **Python 3**
+- Python 3
 - SpeechRecognition
 - pyttsx3
 - Tkinter (GUI)
@@ -45,6 +46,9 @@ jarvis/
 ├── .gitignore
 └── data/
 
+yaml
+Copy code
+
 ---
 
 ## 🔐 Environment Setup
@@ -56,8 +60,10 @@ Create a `.env` file in the project root:
 OPENAI_API_KEY=your_openai_api_key_here
 GEMINI_KEY_PATH=path_to_gemini_json_key
 
+yaml
+Copy code
 
-Make sure `.env` is included in `.gitignore`.
+Make sure `.env` is added to `.gitignore`.
 
 ---
 
@@ -66,15 +72,12 @@ Make sure `.env` is included in `.gitignore`.
 ```bash
 pip install -r requirements.txt
 python main.py
-
-## Requirements:
-
+Requirements
 Microphone (for voice mode)
 
 Internet connection (for LLM features)
 
 ⚠️ Known Limitations
-
 Memory system is basic (no long-term memory yet)
 
 Intent detection is rule-based
@@ -84,7 +87,6 @@ Limited built-in skills
 Windows-focused automation
 
 🗺️ Roadmap
-
 Persistent memory (JSON / SQLite)
 
 Plugin-based skill system
@@ -98,11 +100,9 @@ Offline command support
 Packaging as executable (.exe)
 
 🤝 Contributing
-
-This is a personal learning project, but suggestions and improvements are welcome.
-Feel free to open issues or submit pull requests.
+This is a personal learning project.
+Suggestions, issues, and pull requests are welcome.
 
 👤 Author
-
 Mohit Rajput
 GitHub: https://github.com/msrajput08
