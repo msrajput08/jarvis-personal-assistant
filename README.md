@@ -47,17 +47,18 @@ jarvis/
 ├── router.py
 ├── output.py
 ├── automation/
-│ ├── init.py
-│ ├── system.py
-│ ├── files.py
-│ └── extras.py
+│   ├── __init__.py
+│   ├── system.py
+│   ├── files.py
+│   └── extras.py
 ├── llm.py
 ├── gui.py
 ├── requirements.txt
 ├── .gitignore
 └── data/
-├── memory.json
-└── ...
+    ├── memory.json
+    └── ...
+
 
 ---
 
