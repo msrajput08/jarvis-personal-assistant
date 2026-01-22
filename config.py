@@ -1,11 +1,18 @@
 import os
+from dotenv import load_dotenv
 
-# ================== API KEYS (FROM ENV) ==================
+# Load .env file
+load_dotenv()
 
-OPENAI_KEY = os.getenv("OPENAI_API_KEY")
-GEMINI_KEY_PATH = os.getenv("GEMINI_KEY_PATH")
+# API KEYS
+OPENAI_KEY = os.getenv("OPENAI_KEY")
+GEMINI_KEY = os.getenv("GEMINI_KEY")
+OPENWEATHER_KEY = os.getenv("OPENWEATHER_KEY")
 
-# ================== ASSISTANT CONFIG ==================
+print("OPENAI_KEY:", os.getenv("OPENAI_KEY"))
+print("GEMINI_KEY:", os.getenv("GEMINI_KEY"))
+print("OPENWEATHER_KEY:", os.getenv("OPENWEATHER_KEY"))
 
+# ASSISTANT SETTINGS
 WAKE_WORD = "jarvis"
-ACTIVE_TIMEOUT = 30  # seconds
+ACTIVE_TIMEOUT = 120  # seconds

@@ -1,29 +1,26 @@
 def detect_intent(text):
-    text = text.lower()
+    text = text.lower().strip()
 
-    OPEN_WORDS = [
-        "open", "start", "launch", "run",
-        "khol", "chalu", "start karo", "open karo"
-    ]
+    INTENTS = {
+        "EXIT": ["exit", "quit", "bye", "stop", "close jarvis"],
+        "OPEN": ["open", "start", "launch", "run", "khol", "chalu", "start karo", "open karo"],
+        "CLOSE": ["close app", "band karo", "close karo", "band", "stop", "exit"],
+        "SHUTDOWN": ["shutdown", "power off", "off"],
+        "RESTART": ["restart", "reboot"],
+        "TIME": ["time", "kya time", "samay"],
+        "SEARCH": ["search", "google", "find"],
+        "YOUTUBE": ["youtube", "play on youtube", "play youtube"],
+        "WEBSITE": ["open website", "open site", "open google", "open youtube", "open github"],
+        "REMINDER": ["remind me", "reminder", "set reminder"],
+        "SCREENSHOT": ["screenshot", "take screenshot"],
+        "CALCULATE": ["calculate", "what is", "solve"],
+        "WHATSAPP": ["whatsapp", "send message", "message on whatsapp"],
+        "WEATHER": ["weather", "temperature", "forecast"]
+    }
 
-    CLOSE_WORDS = [
-        "close", "band", "stop", "exit",
-        "band karo", "close karo"
-    ]
-
-    SHUTDOWN_WORDS = ["shutdown", "power off", "off"]
-    RESTART_WORDS = ["restart", "reboot"]
-
-    if any(word in text for word in OPEN_WORDS):
-        return "OPEN"
-
-    if any(word in text for word in CLOSE_WORDS):
-        return "CLOSE"
-
-    if any(word in text for word in SHUTDOWN_WORDS):
-        return "SHUTDOWN"
-
-    if any(word in text for word in RESTART_WORDS):
-        return "RESTART"
+    for intent, keywords in INTENTS.items():
+        for word in keywords:
+            if word in text:
+                return intent
 
     return "UNKNOWN"

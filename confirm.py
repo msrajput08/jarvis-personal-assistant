@@ -1,29 +1,36 @@
 from output import speak
-from voice_input import get_voice_command
-from voice_input import get_text_command
+from voice_input import get_voice_command, get_text_command
+
+YES_WORDS = ["yes", "haan", "ha", "yep", "sure"]
+NO_WORDS = ["no", "nah", "nahi", "na"]
 
 def confirm_action(action_text):
     """
-    Asks user to confirm an action (voice or text)
-    Returns True if user confirms, False otherwise
+    Asks user to confirm an action (voice or text).
+    Returns True if confirmed, False otherwise.
     """
 
-    speak(f"Are you sure you want to {action_text}? Please say yes or no")
+    speak(f"Confirm karo bhai, kya main {action_text} karu? Yes ya No bolo")
 
-    for _ in range(3):  # 3 tries
-        # try voice first
+    for _ in range(3):  # max 3 tries
+        # Voice first
         ans = get_voice_command()
         if not ans:
             ans = get_text_command()
 
-        ans = ans.lower()
-        if "yes" in ans:
-            return True
-        elif "no" in ans:
-            speak("Action cancelled ✅")
-            return False
-        else:
-            speak("Please say yes or no")
+        if not ans:
+            continue
 
-    speak("No valid response. Action cancelled ✅")
+        ans = ans.lower().strip()
+
+        if any(word in ans for word in YES_WORDS):
+            return True
+
+        if any(word in ans for word in NO_WORDS):
+            speak("Action cancel kar diya ✅")
+            return False
+
+        speak("Haan ya nahi bolo bhai")
+
+    speak("Response nahi mila, action cancel kar diya ✅")
     return False
