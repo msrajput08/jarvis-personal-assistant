@@ -40,24 +40,25 @@ It is designed as a learning-focused, extensible desktop assistant, inspired by 
 ## 🧩 Project Structure (Simplified)
 
 jarvis/
-├── main.py
-├── config.py
-├── voice_input.py
-├── intent.py
-├── router.py
-├── output.py
-├── automation/
-│   ├── __init__.py
-│   ├── system.py
-│   ├── files.py
-│   └── extras.py
-├── llm.py
-├── gui.py
-├── requirements.txt
-├── .gitignore
-└── data/
-    ├── memory.json
-    └── ...
+ main.py
+ config.py
+ voice_input.py
+ intent.py
+ router.py
+ output.py
+ automation/
+  __init__.py
+  system.py
+  files.py
+  extras.py
+ llm.py
+ gui.py
+ requirements.txt
+ .gitignore
+ data/
+  memory.json
+  ...
+
 
 
 ---
