@@ -1,69 +1,78 @@
 # 🤖 Jarvis – Personal AI Assistant
 
-Jarvis is a **Python-based personal AI assistant** that supports **voice and text interaction**, system automation, and intelligent command handling.
+Jarvis is a Python-based personal AI assistant that supports voice and text interaction, system automation, and intelligent command handling.
 
-It is designed as a **learning-focused, extensible desktop assistant**, inspired by real-world AI systems.
+It is designed as a learning-focused, extensible desktop assistant, inspired by real-world AI systems.
 
-> 🚧 **Status:** Actively under development
+🚧 **Status:** Actively under development
 
 ---
 
 ## ✨ Features
 
-* 🗣️ Voice-based interaction (Speech Recognition + Text-to-Speech)
-* 💬 Text input via GUI
-* 🎯 Wake-word activation (`Jarvis`)
-* 🔁 Continuous conversation mode (no repeated wake word)
-* 🧠 Intent detection with LLM fallback
-* ⚙️ System & browser automation
-* 🧱 Modular and clean architecture
-* 🔐 Secure API key handling using environment variables
+### 🗣️ Voice & Text Interaction
+- Voice-based interaction (Speech Recognition + Text-to-Speech)
+- Text input via GUI
+- Wake-word activation (**Jarvis**)
+- Continuous conversation mode (no repeated wake word for 120 seconds)
+
+### 🧠 Intelligent Command Handling
+- Rule-based intent detection
+- LLM fallback (OpenAI / Gemini) for unknown intents
+
+### ⚙️ Automation & Actions
+- Open / close apps
+- Open folders & files
+- System control (shutdown/restart)
+- Weather updates using OpenWeather API
+- WhatsApp automation (planned/optional)
+
+### 🧱 Architecture
+- Modular and clean architecture
+- Separate files for routing, intent detection, automation, output, etc.
+
+### 🔐 Secure API Key Handling
+- API keys are stored in `.env`
+- `.env` is ignored in git via `.gitignore`
 
 ---
 
-## 🛠️ Tech Stack
+## 🧩 Project Structure (Simplified)
 
-* **Language:** Python 3
-* **Libraries & Tools:**
-
-  * SpeechRecognition
-  * pyttsx3
-  * Tkinter (GUI)
-  * OpenAI / Gemini (optional LLM integration)
-* **Version Control:** Git & GitHub
-
----
-
-## 📂 Project Structure (Simplified)
-
-```
 jarvis/
 ├── main.py
 ├── config.py
-├── voice.py
+├── voice_input.py
 ├── intent.py
-├── automation.py
+├── router.py
+├── output.py
+├── automation/
+│ ├── init.py
+│ ├── system.py
+│ ├── files.py
+│ └── extras.py
 ├── llm.py
 ├── gui.py
 ├── requirements.txt
 ├── .gitignore
 └── data/
-```
+├── memory.json
+└── ...
+
 
 ---
 
 ## 🔐 Environment Setup
 
-API keys are **never hardcoded**.
+API keys are never hardcoded.
 
 Create a `.env` file in the project root:
 
-```env
-OPENAI_API_KEY=your_openai_api_key_here
-GEMINI_KEY_PATH=path_to_gemini_json_key
-```
+OPENAI_KEY=your_openai_api_key_here
+GEMINI_KEY=path_to_gemini_json_key
+OPENWEATHER_KEY=your_openweather_api_key
 
-Ensure `.env` is added to `.gitignore` to keep secrets safe.
+Make sure `.env` is added to `.gitignore`.
 
 ---
 
@@ -72,44 +81,31 @@ Ensure `.env` is added to `.gitignore` to keep secrets safe.
 ```bash
 pip install -r requirements.txt
 python main.py
-```
 
-### Requirements
+## ⚙️ Supported Intents (So far)
+Intent	Example Commands
+OPEN	open chrome / open folder / open file
+CLOSE	close notepad / close app
+SHUTDOWN	shutdown system
+RESTART	restart system
+EXIT	exit / quit / close jarvis
+UNKNOWN	fallback to LLM
 
-* 🎤 Microphone (for voice mode)
-* 🌐 Internet connection (for LLM-based features)
+## 🧠 Roadmap
 
----
-
-## ⚠️ Known Limitations
-
-* Memory system is basic (no long-term memory yet)
-* Intent detection is currently rule-based
-* Limited built-in skills
-* Windows-focused automation
-
----
-
-## 🗺️ Roadmap
-
-* Persistent memory (JSON / SQLite)
-* Plugin-based skill system
-* Improved intent classification
-* Personality modes
-* Offline command support
-* Packaging as executable (`.exe`)
-
----
+Persistent memory (JSON / SQLite)
+Plugin-based skill system
+Improved intent classification
+Personality modes
+Offline command support
+Packaging as executable (.exe)
 
 ## 🤝 Contributing
 
-This is a **personal learning project**.
-
+This is a personal learning project.
 Suggestions, issues, and pull requests are welcome and appreciated.
-
----
 
 ## 👤 Author
 
-**Mohit Rajput**
-GitHub: [https://github.com/msrajput08](https://github.com/msrajput08)
+Mohit Rajput
+GitHub: https://github.com/msrajput08
